@@ -3,7 +3,8 @@ import os
 import re
 import torch
 import numpy as np
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, get_worker_info
+
 from utils.cropping import crop_to_fixed_bbox
 import config
 from utils.utils import robust_minmax, threshold, load_nifti
@@ -29,9 +30,11 @@ class TumorPropagationDataset(Dataset):
                  dataset_transform,
                  t0_spec,
                  threshold,
-                 decomposition_steps = 9,
-                 decomposition_mode = 'exp_e',
-                 decomposition_decay =0.5
+                 decomposition_steps,
+                 decomposition_mode,
+                 decomposition_decay,
+                 seed,
+                 noise_amp
                  ):
         
         self.samples = []
@@ -44,9 +47,11 @@ class TumorPropagationDataset(Dataset):
         self.dataset_transform = dataset_transform
         self.thresh = threshold
         self.t0_kind, self.t0_val = t0_spec
-        self.decomposition_steps = decomposition_steps  # t0.1 .. t0.9
-        self.decomposition_mode  = decomposition_mode   # 'linear' | 'exponential' | 'exp_e'
-        self.decomposition_decay = decomposition_decay  # only for 'exponential'
+        self.decomposition_steps = decomposition_steps
+        self.decomposition_mode  = decomposition_mode
+        self.decomposition_decay = decomposition_decay
+        self.seed = seed
+        self.noise_amp = noise_amp
 
         pattern = re.compile(r't([1-4])_\d{3}\.nii\.gz')
         for pid in sorted(os.listdir(data_dir)):
@@ -106,8 +111,15 @@ class TumorPropagationDataset(Dataset):
         elif self.scale_mode == "sigmoid":
             vol = 1 / (1 + np.exp(-vol))
         return vol
+    
+    def _make_rng(self, idx):
+        wi = get_worker_info()
+        worker_seed = wi.seed if wi is not None else 0
+        return np.random.default_rng(self.seed + worker_seed + idx)
 
     def __getitem__(self, idx):
+        rng = self._make_rng(idx)
+
         if self.dataset_transform == 'T2E':
             item = self.samples[idx]
 
@@ -155,7 +167,9 @@ class TumorPropagationDataset(Dataset):
 
                 for j in range(j_start, j_end + 1):
                     frac = float(np.clip(frac_keep(j, s, self.decomposition_mode, self.decomposition_decay), 0.0, 1.0))
-                    m_j = top_Xperc_voxels(t1, frac).astype(np.uint8)
+                    noise = rng.uniform(-self.noise_amp, self.noise_amp)
+                    frac_noisy = float(np.clip(frac + noise, 0.0, 1.0))
+                    m_j = top_Xperc_voxels(t1, frac_noisy).astype(np.uint8)
                     mask_vols.append(m_j)
 
 

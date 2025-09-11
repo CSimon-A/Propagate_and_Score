@@ -137,13 +137,14 @@ def build_dataloaders(args):
         threshold=args.threshold,
         decomposition_steps = args.decomposition_steps,
         decomposition_mode = args.decomposition_mode,
-        decomposition_decay = args.decomposition_decay
+        decomposition_decay = args.decomposition_decay,
+        seed = args.seed,
+        noise_amp = args.noise_amp
         )
     
     indices = list(range(len(full_ds)))
     print(f"Total samples in dataset: {len(full_ds)}")
     if args.subset_frac < 1.0:
-        random.seed(args.seed)
         subset_size = max(1, int(len(indices) * args.subset_frac))
         indices = random.sample(indices, subset_size)
 
@@ -401,7 +402,16 @@ def train(args):
         'threshold': args.threshold,
         'decomposition_steps': args.decomposition_steps,
         'decomposition_mode': args.decomposition_mode,
-        'decomposition_decay': args.decomposition_decay
+        'decomposition_decay': args.decomposition_decay,
+        'seed': args.seed,
+        'noise_amp': args.noise_amp,
+        'want_all_checkpoints': args.want_all_checkpoints,
+        'device': config.DEVICE,
+        'input_channels': config.INPUT_CHANNELS,
+        'output_channels': config.OUTPUT_CHANNELS,
+        'bbox_size': config.BBOX_SIZE,
+        'input_dims': (config.D, config.H, config.W),
+        'max_timepoint': args.max_timepoint
     }
 
     # Write as individual text summaries under "hparams/"
@@ -505,13 +515,17 @@ if __name__ == '__main__':
                    help=f'number of morphological decomposition steps to apply to input mask t1 (default: {config.DECOMPOSITION_STEPS})')
     p.add_argument('--decomposition-mode',
                    type=str,
-                   choices=['linear', 'exp', 'exp_e'],
+                   choices=['linear', 'exponential', 'exp_e'],
                    default=config.DECOMPOSITION_MODE,
                    help=f'morphological operation for decomposition (default {config.DECOMPOSITION_MODE})')
     p.add_argument('--decomposition-decay',
                    type=float,
                    default=config.DECOMPOSITION_DECAY,
                    help=f'decay factor for decomposition steps for exp mode (default: {config.DECOMPOSITION_DECAY})')
+    p.add_argument('--noise-amp',
+                   type=float,
+                   default=config.NOISE_AMP,
+                   help=f'amplitude of uniform noise to add to decomposition fractions (default: {config.NOISE_AMP})')  
     
     p.add_argument('--downsample', 
                    action='store_true',
@@ -609,6 +623,10 @@ if __name__ == '__main__':
                    help=f'if set, save model checkpoint at every save_epochs (not just best val loss) (default: {config.WANT_ALL_CHECKPOINTS})')
 
     args = p.parse_args()
+
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
 
     # create a timestamped save directory and log run parameters
     save_dir = args.save_dir
