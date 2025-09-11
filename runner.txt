@@ -1,4 +1,6 @@
-source env/bin/activate
+Environment:
+  python3.10 -m venv ~/.venvs/Propa_Score
+  source ~/.venvs/Propa_Score/bin/activate
 
 tmux commands:
   Create new tmux
