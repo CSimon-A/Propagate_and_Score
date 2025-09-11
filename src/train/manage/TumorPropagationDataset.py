@@ -31,8 +31,7 @@ class TumorPropagationDataset(Dataset):
                  threshold,
                  decomposition_steps = 9,
                  decomposition_mode = 'exp_e',
-                 decomposition_decay =0.5,
-                 include_full_and_empty=False
+                 decomposition_decay =0.5
                  ):
         
         self.samples = []
@@ -48,7 +47,6 @@ class TumorPropagationDataset(Dataset):
         self.decomposition_steps = decomposition_steps  # t0.1 .. t0.9
         self.decomposition_mode  = decomposition_mode   # 'linear' | 'exponential' | 'exp_e'
         self.decomposition_decay = decomposition_decay  # only for 'exponential'
-        self.include_full_and_empty = include_full_and_empty  # skip exact 100% and 0% by default
 
         pattern = re.compile(r't([1-4])_\d{3}\.nii\.gz')
         for pid in sorted(os.listdir(data_dir)):
@@ -69,10 +67,7 @@ class TumorPropagationDataset(Dataset):
                     if self.t0_kind != 'none' and t == 1:
                         # Create synthetic t0.* variants from the T1 mask (m_t_path)
                         if self.decomposition_steps and self.decomposition_steps > 0:
-                            if self.include_full_and_empty:
-                                start_i, end_i = 0, self.decomposition_steps        # includes 100% and 0% (linear)
-                            else:
-                                start_i, end_i = 1, self.decomposition_steps - 1    # excludes both extremes
+                            start_i, end_i = 1, self.decomposition_steps - 1    # excludes both extremes
                             for i in range(start_i, end_i + 1):
                                 self.samples.append((bravo, flair, mask_t, 0, True, i, self.decomposition_steps))
                         else:
@@ -154,12 +149,9 @@ class TumorPropagationDataset(Dataset):
                         denom = 1.0 - np.exp(-s)
                         return float((1.0 - np.exp(-j)) / denom) if denom > 0 else 1.0
 
-                if self.include_full_and_empty:
-                    j_start, j_end = i, s                 # allow 0% and 100% if i==0 or j==s
-                else:
-                    j_start, j_end = max(i, 1), s - 1     # exclude 0% and 100%
-                    if j_start > j_end:                   # ensure at least one step
-                        j_start = j_end = max(1, s - 1)
+                j_start, j_end = max(i, 1), s - 1     # exclude 0% and 100%
+                if j_start > j_end:                   # ensure at least one step
+                    j_start = j_end = max(1, s - 1)
 
                 for j in range(j_start, j_end + 1):
                     frac = float(np.clip(frac_keep(j, s, self.decomposition_mode, self.decomposition_decay), 0.0, 1.0))

@@ -28,7 +28,6 @@ LEVELSET_STEPS = 0          # number of levelset evolution steps to apply to inp
 DECOMPOSITION_STEPS = 9    # number of times to apply decomposition to input masks (0 = no decomposition)
 DECOMPOSITION_MODE = 'exp_e'  # decomposition mode: 'linear', 'exp', 'exp_e'
 DECOMPOSITION_DECAY = 0.5   # decomposition decay rate
-INCLUDE_FULL_AND_EMPTY = False  # whether to include fully empty and fully full t1 mask in decomposition
 
 MAX_TIMEPOINTS = 4           # maximum timepoint in the dataset (e.g. 4 for t1,2,3,4)
 TX = 4                      # latest future timepoint to include as a target 

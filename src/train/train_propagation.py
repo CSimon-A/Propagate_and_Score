@@ -137,9 +137,7 @@ def build_dataloaders(args):
         threshold=args.threshold,
         decomposition_steps = args.decomposition_steps,
         decomposition_mode = args.decomposition_mode,
-        decomposition_decay = args.decomposition_decay,
-        include_full_and_empty= args.include_full_and_empty
-
+        decomposition_decay = args.decomposition_decay
         )
     
     indices = list(range(len(full_ds)))
@@ -497,10 +495,6 @@ if __name__ == '__main__':
                    default=config.TX,
                    help=f'Latest future timepoint to include as a target (default: {config.TX})')
     
-    p.add_argument('--include-full-and-empty',
-                   action='store_true',
-                   default=config.INCLUDE_FULL_AND_EMPTY,
-                   help=f'if set, include samples with 100% and 0% of mask t1 (default: {config.INCLUDE_FULL_AND_EMPTY})')
     p.add_argument('--decomposition-steps',
                    type=int,
                    default=config.DECOMPOSITION_STEPS,
