@@ -141,6 +141,7 @@ def build_dataloaders(args):
         )
     
     indices = list(range(len(full_ds)))
+    print(f"Total samples in dataset: {len(full_ds)}")
     if args.subset_frac < 1.0:
         random.seed(args.seed)
         subset_size = max(1, int(len(indices) * args.subset_frac))
