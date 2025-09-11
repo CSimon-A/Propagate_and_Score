@@ -3,8 +3,8 @@
 Self‑contained inference pipeline to **propagate tumor masks** and/or **derive future masks from a Time‑to‑Event (T2E) map** using trained models.
 
 # TODO
-Add code for training
-Make scripts easier to understand/follow
+- Add code for training
+- Make scripts easier to understand/follow
 
 # 1) Run only prediction (produces a T2E map)
 python src/run_pipeline.py predict \
