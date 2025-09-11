@@ -399,6 +399,9 @@ def train(args):
         't0_spec': args.t0,
         'save_dir': args.save_dir,
         'threshold': args.threshold,
+        'decomposition_steps': args.decomposition_steps,
+        'decomposition_mode': args.decomposition_mode,
+        'decomposition_decay': args.decomposition_decay
     }
 
     # Write as individual text summaries under "hparams/"
