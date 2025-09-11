@@ -30,12 +30,12 @@ Run training:
             --data-dir ~/Dataset/Martens_2021_tumeurs/original_data/ \
             --dataset-transform T2E \
             --downsample \
-            --epochs 5 \
+            --epochs 50 \
             --batch-size 1 \
             --val-size 0.2 \
             --save-dir saved_models/v20 \
-            --subset-frac 0 \
-            --num-saves 5 \
+            --subset-frac 1 \
+            --num-saves 10 \
             --tx 1
 
 
