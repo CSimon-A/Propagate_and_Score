@@ -1,0 +1,13 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "propagate-and-score"
+version = "0.0.0"
+requires-python = "==3.10.16"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }

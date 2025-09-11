@@ -1,0 +1,33 @@
+Command: src/train_propagation.py --model larger_skip --data-dir /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/ --dataset-transform T2E --downsample --epochs 50 --batch-size 2 --val-size 0.2 --save-dir saved_models/v17 --subset-frac 1 --num-saves 10 --tx 4
+
+Arguments:
+batch_size: 2
+bce_weight: 1.0
+bd_weight: 1.0
+data_dir: /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/
+dataset_transform: T2E
+downsample: True
+epochs: 50
+es_delta: 0.0001
+es_patience: 3
+factor: 2
+hd_weight: 0.5
+levelset_steps: 0
+lr: 0.0001
+model: larger_skip
+num_saves: 10
+pos_weight: 200.0
+save_dir: saved_models/v17
+scale_mode: min-max
+seed: 42
+subset_frac: 1.0
+tx: 4
+val_size: 0.2
+
+Config Constants:
+BBOX_SIZE: (192, 192, 192)
+D: 193
+H: 229
+INPUT_CHANNELS: 3
+OUTPUT_CHANNELS: 1
+W: 193

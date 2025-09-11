@@ -1,0 +1,106 @@
+source env/bin/activate
+
+tmux commands:
+  Create new tmux
+    tmux new -s {tmux_name}
+
+  Detach from tmux (leave training running)
+    Ctrl + B, then D
+
+  Check back later
+    tmux ls
+    tmux attach -t {tmux_name}
+
+  Stop/clean up tmux
+    exit
+
+Tensorboard command:
+  tensorboard --logdir saved_models --port 6006
+  Web browser: http://localhost:6006
+
+
+Run training:
+
+  Example: 
+    python src/train/train_propagation.py \
+            --model Unet3D \
+            --data-dir ~/Dataset/Martens_2021_tumeurs/original_data/ \
+            --dataset-transform T2E \
+            --downsample \
+            --epochs 5 \
+            --batch-size 1 \
+            --val-size 0.2 \
+            --save-dir saved_models/v20 \
+            --subset-frac 0 \
+            --num-saves 5 \
+            --tx 1
+
+
+python src/predict.py \
+--bravo data/cas_1/t1_bravo_bet.nii.gz \
+--flair data/cas_1/t2_flair_bet.nii.gz \
+--mask data/cas_1/tumor_1.nii.gz \
+--out_dir data/cas_1/output/ \
+--t2e_ckpt saved_models/v17/propagation_unet_best.pth
+
+
+python src/score.py \
+  --R data/cas_1/tumor_1_dil.nii.gz \
+  --T1 data/cas_1/tumor_1.nii.gz \
+  --G data/cas_1/output/t2e_map.nii.gz \
+  --out_dir data/cas_1/output \
+  --save_maps
+
+
+
+Run only prediction
+python src/run_pipeline.py predict \
+  --bravo data/cas_1/t1_bravo_bet.nii.gz \
+  --flair data/cas_1/t2_flair_bet.nii.gz \
+  --mask  data/cas_1/tumor_1.nii.gz \
+  --out_dir data/cas_1/output \
+  --t2e_ckpt saved_models/v17/propagation_unet_best.pth \
+  --mni_ref data/mni_masked.nii.gz
+
+Run only scoring (assumes T2E already produced)
+python src/run_pipeline.py score \
+  --R data/cas_1/tumor_1_dil.nii.gz \
+  --T1 data/cas_1/tumor_1.nii.gz \
+  --G  data/cas_1/output/t2e_map.nii.gz \
+  --out_dir data/cas_1/output --save_maps \
+  --mni_ref data/mni_masked.nii.gz
+
+Run end-to-end (predict and score); by default, score uses the predicted G
+python src/run_pipeline.py both \
+  --bravo data/cas_4/t1_bravo_bet.nii.gz \
+  --flair data/cas_4/t2_flair_bet.nii.gz \
+  --mask  data/cas_4/tumor_2.nii.gz \
+  --pred_out_dir data/cas_4/output_2 \
+  --t2e_ckpt saved_models/v17/propagation_unet_best.pth \
+  --R data/cas_4/tumor_2_dil.nii.gz \
+  --save_maps \
+  --mni_ref data/mni_masked.nii.gz
+
+  python src/run_pipeline.py both \
+  --bravo data/cas_4/t1_bravo_bet.nii.gz \
+  --flair data/cas_4/t2_flair_bet.nii.gz \
+  --mask  data/cas_4/tumor_1.nii.gz \
+  --pred_out_dir data/cas_4/output_1 \
+  --t2e_ckpt saved_models/v17/propagation_unet_best.pth \
+  --R data/cas_4/tumor_1_dil.nii.gz \
+  --save_maps \
+  --mni_ref data/mni_masked.nii.gz
+
+
+MNI
+
+antsRegistrationSyNQuick.sh \
+-d 3 -f mni_masked.nii.gz \
+-m cas_2/t1_bravo_bet.nii.gz -o XXX
+
+antsApplyTransforms \
+-d 3 -r mni_masked.nii.gz \
+-i cas_2/t1_bravo_bet.nii.gz \
+-e 0 -t XXX1Warp.nii.gz \
+-t XXX0GenericAffine.mat  \
+-o out1.nii.gz -v 1
