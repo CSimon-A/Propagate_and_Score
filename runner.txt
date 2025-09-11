@@ -36,7 +36,7 @@ Run training:
             --save-dir saved_models/v20 \
             --subset-frac 1 \
             --num-saves 10 \
-            --tx 1
+            --tx 2
 
 
 python src/predict.py \

@@ -155,8 +155,7 @@ class TumorPropagationDataset(Dataset):
 
                 for j in range(j_start, j_end + 1):
                     frac = float(np.clip(frac_keep(j, s, self.decomposition_mode, self.decomposition_decay), 0.0, 1.0))
-                    pct = 100.0 * frac
-                    m_j = top_Xperc_voxels(t1, pct).astype(np.uint8)
+                    m_j = top_Xperc_voxels(t1, frac).astype(np.uint8)
                     mask_vols.append(m_j)
 
 
