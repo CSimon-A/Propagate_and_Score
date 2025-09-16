@@ -143,6 +143,8 @@ class TumorPropagationDataset(Dataset):
                 mask_vols = []
 
                 t1 = load_nifti(m_t_path)[0]  # real T1 volume (not binarized here)
+                t1 = threshold(t1, thr=self.thresh, binary=False)
+
                 i = int(step_idx) if step_idx is not None else 1
                 s = int(total_steps) if total_steps is not None else 1
                 i = max(0, min(i, s))  # clamp safely
