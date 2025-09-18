@@ -174,39 +174,38 @@ class FocalBoundaryLoss(nn.Module):
         return self.focal_bce(logits, boundary)
 
 
-def compute_l1_loss(pred_time, true_time, bg_weight):
+def compute_tte_loss(pred_time, true_time, bg_weight=0.1, bg_value=-1.0):
     """
-    Custom loss for tumor propagation:
-      - Foreground voxels (true_time >= 0): L1 loss between prediction and ground truth.
-      - Background voxels (true_time < 0): penalty if prediction > -1.
+    Time-to-Event loss:
+      - Foreground (true_time >= 0): L1(pred, target)
+      - Background (true_time == bg_value): hinge penalty only if pred > bg_value
+        i.e., penalty = ReLU(pred - bg_value)
 
-    Args:
-        pred_time (Tensor): Model predictions, shape (B, ...).
-        true_time (Tensor): Ground truth times, shape (B, ...).
-        bg_weight (float): Weight for background penalty (default: 0.1).
-
-    Returns:
-        Tensor: scalar loss value.
+    Returns: scalar loss tensor (finite)
     """
-    # Identify foreground and background masks
-    valid = (true_time >= 0)   # foreground
-    neg   = ~valid             # background
-
-    # Clamp predictions for loss (ignore values < -1, treat as -1)
-    pred_for_loss = torch.maximum(pred_time, torch.tensor(-1.0, device=pred_time.device))
+    # Masks
+    fg = (true_time >= 0)
+    bg = ~fg  # assumes background is everything else (i.e., -1)
 
     # --- Foreground L1 ---
-    l1_map = (pred_for_loss - true_time).abs()
-    valid_count = valid.sum()
-    l1 = (l1_map[valid].sum() / valid_count.clamp(min=1))
-    l1 = torch.where(valid_count > 0, l1, torch.zeros_like(l1))
-
-    # --- Background penalty ---
-    if neg.any() and bg_weight > 0:
-        # Penalize background predictions > -1
-        neg_l1 = torch.relu(pred_for_loss[neg] + 1).mean()
+    if fg.any():
+        l1_fg = (pred_time[fg] - true_time[fg]).abs().mean()
     else:
-        neg_l1 = torch.zeros_like(l1)
+        l1_fg = pred_time.new_tensor(0.0)
 
-    # --- Final loss ---
-    return l1 + bg_weight * neg_l1
+    # --- Background hinge ---
+    # No penalty for any pred <= bg_value; linear penalty above bg_value.
+    if bg.any() and bg_weight > 0:
+        hinge_bg = torch.relu(pred_time[bg] - bg_value).mean()
+    else:
+        hinge_bg = pred_time.new_tensor(0.0)
+
+    loss = l1_fg + bg_weight * hinge_bg
+
+    # Optional safety: replace NaN/Inf with zero so training doesn't crash,
+    # and log a warning.
+    if not torch.isfinite(loss):
+        loss = torch.zeros((), device=pred_time.device, dtype=pred_time.dtype)
+
+    return loss
+

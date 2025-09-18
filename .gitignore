@@ -185,3 +185,4 @@ cython_debug/
 # Model Paths
 *.pth
 /data
+/src/outputs_nifti

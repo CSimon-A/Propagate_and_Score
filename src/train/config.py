@@ -25,10 +25,10 @@ T0_SPEC = ('topk', 9)       # how to synthesize t0
 THRESHOLD = 0.01            # threshold for input maps
 LEVELSET_STEPS = 0          # number of levelset evolution steps to apply to input masks (0 = no levelset)
 
-DECOMPOSITION_STEPS = 10    # number of times to apply decomposition to input masks (0 = no decomposition)
-DECOMPOSITION_MODE = 'exp_e'  # decomposition mode: 'linear', 'exponential', 'exp_e'
+DECOMPOSITION_STEPS = 5     # number of times to apply decomposition to input masks (0 = no decomposition)
+DECOMPOSITION_MODE = 'linear'  # decomposition mode: 'linear', 'exponential', 'exp_e'
 DECOMPOSITION_DECAY = 0.5   # decomposition decay rate
-NOISE_AMP = 0.05            # amplitude of uniform noise to add to decomposition fractions# (Rule of thumb: keep NOISE_AMP < 0.5 / DECOMPOSITION_STEPS 
+NOISE_AMP = 0.09             # amplitude of uniform noise to add to decomposition fractions# (Rule of thumb: keep NOISE_AMP < 0.5 / DECOMPOSITION_STEPS 
                                 #  so noise is less than ~half the step size, avoiding too much overlap)
 
 

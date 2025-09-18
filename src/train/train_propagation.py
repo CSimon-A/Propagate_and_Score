@@ -22,7 +22,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 # ── Local ────────────────────────────────────────────────────────────────
 import config
-from utils.losses import BoundaryLoss, HausdorffLoss, compute_l1_loss
+from utils.losses import BoundaryLoss, HausdorffLoss, compute_tte_loss
 from manage.TumorPropagationDataset import TumorPropagationDataset as Dataset
 
 # ------------------------------
@@ -216,6 +216,8 @@ def train(args):
         if config.DEVICE == 'cuda':
             torch.cuda.reset_peak_memory_stats(0)
 
+
+
         # training
         model.train()
         train_loss = 0.0
@@ -230,7 +232,12 @@ def train(args):
                     pred_time = logits.squeeze(1)
                     true_time = y.squeeze(1).float()
                     
-                    loss = compute_l1_loss(pred_time, true_time, args.bg_weight)
+                    loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+
+                    if not torch.isfinite(loss):
+                        print("WARN: loss is non-finite; stats:",
+                            "pred_time:", pred_time.min().item(), pred_time.max().item(),
+                            "true_time:", true_time.min().item(), true_time.max().item())
 
                     writer.add_scalar('Loss/train_L1', loss.item(), epoch)
                     print(f"Epoch {epoch}/{args.epochs}  Train L1={loss:.4f}")
@@ -276,7 +283,12 @@ def train(args):
                         pred_time = logits.squeeze(1)
                         true_time = y.squeeze(1).float()
 
-                        loss = compute_l1_loss(pred_time, true_time, args.bg_weight)
+                        loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+
+                        if not torch.isfinite(loss):
+                            print("WARN: loss is non-finite; stats:",
+                                "pred_time:", pred_time.min().item(), pred_time.max().item(),
+                                "true_time:", true_time.min().item(), true_time.max().item())
 
                     else:
                         bce, bd, hd = losses
