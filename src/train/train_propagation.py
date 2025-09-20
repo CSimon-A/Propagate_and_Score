@@ -216,11 +216,11 @@ def train(args):
         if config.DEVICE == 'cuda':
             torch.cuda.reset_peak_memory_stats(0)
 
-
-
         # training
         model.train()
         train_loss = 0.0
+        num_ok_batches = 0
+        num_skipped = 0
         for x, y, _ in tqdm(train_loader, desc=f"Epoch {epoch} Train", leave=False):
             x, y = x.to(config.DEVICE), y.to(config.DEVICE)
             opt.zero_grad()
@@ -232,12 +232,17 @@ def train(args):
                     pred_time = logits.squeeze(1)
                     true_time = y.squeeze(1).float()
                     
-                    loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+                    with torch.cuda.amp.autocast(enabled=False):
+                        loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
 
                     if not torch.isfinite(loss):
-                        print("WARN: loss is non-finite; stats:",
-                            "pred_time:", pred_time.min().item(), pred_time.max().item(),
-                            "true_time:", true_time.min().item(), true_time.max().item())
+                        print("WARN: non-finite loss. stats:",
+                              "logits:", logits.min().item(), logits.max().item(),
+                              "pred_time:", pred_time.min().item(), pred_time.max().item(),
+                              "true_time:", true_time.min().item(), true_time.max().item())
+                        opt.zero_grad(set_to_none=True)
+                        num_skipped += 1
+                        continue
 
                     writer.add_scalar('Loss/train_L1', loss.item(), epoch)
                     print(f"Epoch {epoch}/{args.epochs}  Train L1={loss:.4f}")
@@ -258,20 +263,36 @@ def train(args):
                             f"BCE={bce_loss.item():.4f}, "
                             f"Boundary={bd_loss.item():.4f}, "
                             f"Hausdorff={hd_loss.item():.4f}")
-                
+
             scaler.scale(loss).backward()
+            scaler.unscale_(opt)
+
+            bad = False
+            for p in model.parameters():
+                if p.grad is not None and not torch.isfinite(p.grad).all():
+                    bad = True; break
+            if bad:
+                print("WARN: non-finite grad; skipping step")
+                opt.zero_grad(set_to_none=True)
+                continue
+
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             scaler.step(opt)
             scaler.update()
-            train_loss += loss.item()
-        train_loss /= len(train_loader)
 
-        print(f"Epoch {epoch}/{args.epochs} Train Loss={train_loss:.4f}")
+            train_loss += loss.detach().item()
+            num_ok_batches += 1
+        train_loss /= max(1, num_ok_batches)
+
+        print(f"Epoch {epoch}/{args.epochs} Train Loss={train_loss:.4f} ({num_ok_batches} batches, {num_skipped} skipped)")
         writer.add_scalar('Loss/train_total', train_loss, epoch)
 
         # validation
         if val_loader:
             model.eval()
             val_loss = 0.0
+            num_ok_batches = 0
+            num_skipped = 0
             with torch.no_grad(), autocast():
                 for x, y, _ in tqdm(val_loader, desc=f"Epoch {epoch} Val", leave=False):
                     x, y = x.to(config.DEVICE), y.to(config.DEVICE)
@@ -283,12 +304,16 @@ def train(args):
                         pred_time = logits.squeeze(1)
                         true_time = y.squeeze(1).float()
 
-                        loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+                        with torch.cuda.amp.autocast(enabled=False):
+                            loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
 
                         if not torch.isfinite(loss):
-                            print("WARN: loss is non-finite; stats:",
+                            print("WARN: non-finite loss. stats:",
+                                "logits:", logits.min().item(), logits.max().item(),
                                 "pred_time:", pred_time.min().item(), pred_time.max().item(),
                                 "true_time:", true_time.min().item(), true_time.max().item())
+                            num_skipped += 1
+                            continue
 
                     else:
                         bce, bd, hd = losses
@@ -298,10 +323,11 @@ def train(args):
                         loss = args.bce_weight * bce_loss + args.bd_weight * bd_loss + args.hd_weight * hd_loss
                     
                     batch_loss = loss
-                    val_loss += batch_loss.item()
-            val_loss /= len(val_loader)
+                    val_loss += batch_loss.detach().item()
+                    num_ok_batches += 1
+            val_loss /= max(1, num_ok_batches)
 
-            print(f"Epoch {epoch}/{args.epochs} Val Loss={val_loss:.4f}")
+            print(f"Epoch {epoch}/{args.epochs} Val Loss={val_loss:.4f} ({num_ok_batches} batches, {num_skipped} skipped)")
 
             if args.dataset_transform == 'T2E':
                 writer.add_scalar('Loss/val_total_L1', val_loss, epoch)

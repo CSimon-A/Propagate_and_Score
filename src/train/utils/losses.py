@@ -177,35 +177,28 @@ class FocalBoundaryLoss(nn.Module):
 def compute_tte_loss(pred_time, true_time, bg_weight=0.1, bg_value=-1.0):
     """
     Time-to-Event loss:
-      - Foreground (true_time >= 0): L1(pred, target)
-      - Background (true_time == bg_value): hinge penalty only if pred > bg_value
+      - Foreground, or fg (true_time >= 0): L1(pred, target)
+      - Background, or bg (true_time == bg_value): hinge penalty only if pred > bg_value
         i.e., penalty = ReLU(pred - bg_value)
 
     Returns: scalar loss tensor (finite)
     """
-    # Masks
-    fg = (true_time >= 0)
-    bg = ~fg  # assumes background is everything else (i.e., -1)
+    pred = pred_time.float()
+    tgt  = true_time.float()
 
-    # --- Foreground L1 ---
-    if fg.any():
-        l1_fg = (pred_time[fg] - true_time[fg]).abs().mean()
-    else:
-        l1_fg = pred_time.new_tensor(0.0)
+    fin = torch.isfinite(pred) & torch.isfinite(tgt)
+    if not fin.any():
+        return (pred * 0).sum()
 
-    # --- Background hinge ---
-    # No penalty for any pred <= bg_value; linear penalty above bg_value.
-    if bg.any() and bg_weight > 0:
-        hinge_bg = torch.relu(pred_time[bg] - bg_value).mean()
-    else:
-        hinge_bg = pred_time.new_tensor(0.0)
+    fg = fin & (tgt >= 0)
+    bg = fin & (tgt < 0)
+
+    zero = (pred * 0).sum()
+    l1_fg    = (pred[fg] - tgt[fg]).abs().mean() if fg.any() else zero
+    hinge_bg = torch.relu(pred[bg] - bg_value).mean() if (bg.any() and bg_weight > 0) else zero
 
     loss = l1_fg + bg_weight * hinge_bg
-
-    # Optional safety: replace NaN/Inf with zero so training doesn't crash,
-    # and log a warning.
     if not torch.isfinite(loss):
-        loss = torch.zeros((), device=pred_time.device, dtype=pred_time.dtype)
-
+        return (pred * 0).sum()
     return loss
 
