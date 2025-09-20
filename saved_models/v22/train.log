@@ -1,0 +1,6 @@
+2025-09-20 17:44:53,484 INFO     Total samples in dataset: 6000
+2025-09-20 17:45:00,354 INFO     Epoch 1/50  Train L1=4.9084
+2025-09-20 17:45:05,917 INFO     Epoch 1/50  Train L1=1.0109
+2025-09-20 17:45:11,364 INFO     Epoch 1/50  Train L1=1.9100
+2025-09-20 17:45:16,825 INFO     Epoch 1/50  Train L1=2.8657
+2025-09-20 17:45:22,314 INFO     Epoch 1/50  Train L1=4.8091
