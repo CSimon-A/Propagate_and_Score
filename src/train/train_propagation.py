@@ -242,6 +242,7 @@ def train(args):
                               "true_time:", true_time.min().item(), true_time.max().item())
                         opt.zero_grad(set_to_none=True)
                         num_skipped += 1
+                        scaler.update()
                         continue
 
                     writer.add_scalar('Loss/train_L1', loss.item(), epoch)
@@ -274,6 +275,8 @@ def train(args):
             if bad:
                 print("WARN: non-finite grad; skipping step")
                 opt.zero_grad(set_to_none=True)
+                num_skipped += 1
+                scaler.update()
                 continue
 
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
