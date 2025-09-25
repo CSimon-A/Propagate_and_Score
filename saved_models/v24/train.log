@@ -1,0 +1,64 @@
+2025-09-25 10:21:48,443 INFO     Total samples in dataset: 6000
+2025-09-25 10:21:55,365 INFO     Epoch 1/50  Train L1=2.9074
+2025-09-25 10:22:00,926 INFO     Epoch 1/50  Train L1=1.6443
+2025-09-25 10:22:06,373 INFO     Epoch 1/50  Train L1=4.7345
+2025-09-25 10:22:11,819 INFO     Epoch 1/50  Train L1=2.5036
+2025-09-25 10:22:15,369 INFO     Epoch 1/50 Train Loss=2.9475 (4 batches, 0 skipped)
+2025-09-25 10:22:20,788 INFO     Epoch 1/50 Val Loss=3.0420 (2 batches, 0 skipped)
+2025-09-25 10:22:20,788 INFO     New best val loss: 3.041959
+2025-09-25 10:22:22,400 INFO     [Epoch 1] GPU alloc: 2.38 GB, max alloc: 3.97 GB, reserved: 4.11 GB / 5.61 GB
+2025-09-25 10:22:29,543 INFO     Epoch 2/50  Train L1=2.7875
+2025-09-25 10:22:35,031 INFO     Epoch 2/50  Train L1=1.5261
+2025-09-25 10:22:40,518 INFO     Epoch 2/50  Train L1=2.3613
+2025-09-25 10:22:46,005 INFO     Epoch 2/50  Train L1=4.4426
+2025-09-25 10:22:49,582 INFO     Epoch 2/50 Train Loss=2.7794 (4 batches, 0 skipped)
+2025-09-25 10:22:54,956 INFO     Epoch 2/50 Val Loss=2.7775 (2 batches, 0 skipped)
+2025-09-25 10:22:54,956 INFO     New best val loss: 2.777529
+2025-09-25 10:22:57,679 INFO     [Epoch 2] GPU alloc: 2.39 GB, max alloc: 3.99 GB, reserved: 4.17 GB / 5.61 GB
+2025-09-25 10:23:01,167 INFO     Epoch 3/50  Train L1=1.3802
+2025-09-25 10:23:06,653 INFO     Epoch 3/50  Train L1=2.1222
+2025-09-25 10:23:12,140 INFO     Epoch 3/50  Train L1=3.9487
+2025-09-25 10:23:15,668 INFO     WARN: non-finite grad; skipping step
+2025-09-25 10:23:17,579 INFO     Epoch 3/50  Train L1=2.1962
+2025-09-25 10:23:21,154 INFO     Epoch 3/50 Train Loss=1.8995 (3 batches, 1 skipped)
+2025-09-25 10:23:26,523 INFO     Epoch 3/50 Val Loss=2.2155 (2 batches, 0 skipped)
+2025-09-25 10:23:26,523 INFO     New best val loss: 2.215530
+2025-09-25 10:23:29,191 INFO     [Epoch 3] GPU alloc: 2.39 GB, max alloc: 3.99 GB, reserved: 4.15 GB / 5.61 GB
+2025-09-25 10:23:32,823 INFO     Epoch 4/50  Train L1=3.6107
+2025-09-25 10:23:38,323 INFO     Epoch 4/50  Train L1=0.8077
+2025-09-25 10:23:43,850 INFO     Epoch 4/50  Train L1=1.2125
+2025-09-25 10:23:49,378 INFO     Epoch 4/50  Train L1=0.9603
+2025-09-25 10:23:52,980 INFO     Epoch 4/50 Train Loss=1.6478 (4 batches, 0 skipped)
+2025-09-25 10:23:58,375 INFO     Epoch 4/50 Val Loss=1.2312 (2 batches, 0 skipped)
+2025-09-25 10:23:58,375 INFO     New best val loss: 1.231227
+2025-09-25 10:24:01,053 INFO     [Epoch 4] GPU alloc: 2.39 GB, max alloc: 3.99 GB, reserved: 4.09 GB / 5.61 GB
+2025-09-25 10:24:04,600 INFO     Epoch 5/50  Train L1=1.1422
+2025-09-25 10:24:08,154 INFO     WARN: non-finite grad; skipping step
+2025-09-25 10:24:10,080 INFO     Epoch 5/50  Train L1=2.0579
+2025-09-25 10:24:15,609 INFO     Epoch 5/50  Train L1=2.0924
+2025-09-25 10:24:21,136 INFO     Epoch 5/50  Train L1=0.6978
+2025-09-25 10:24:24,738 INFO     Epoch 5/50 Train Loss=1.6160 (3 batches, 1 skipped)
+2025-09-25 10:24:30,135 INFO     Epoch 5/50 Val Loss=1.2363 (2 batches, 0 skipped)
+2025-09-25 10:24:30,135 INFO     Val loss did not improve (current: 1.236317, best: 1.231227)
+2025-09-25 10:24:30,135 INFO     Worse-than-best count: 1/3
+2025-09-25 10:24:30,136 INFO     [Epoch 5] GPU alloc: 2.39 GB, max alloc: 3.99 GB, reserved: 4.17 GB / 5.61 GB
+2025-09-25 10:24:33,743 INFO     Epoch 6/50  Train L1=1.9335
+2025-09-25 10:24:39,271 INFO     Epoch 6/50  Train L1=0.8044
+2025-09-25 10:24:44,797 INFO     Epoch 6/50  Train L1=2.3760
+2025-09-25 10:24:48,352 INFO     WARN: non-finite grad; skipping step
+2025-09-25 10:24:50,277 INFO     Epoch 6/50  Train L1=1.3982
+2025-09-25 10:24:53,880 INFO     Epoch 6/50 Train Loss=1.3787 (3 batches, 1 skipped)
+2025-09-25 10:24:59,274 INFO     Epoch 6/50 Val Loss=1.2313 (2 batches, 0 skipped)
+2025-09-25 10:24:59,274 INFO     Val loss did not improve (current: 1.231252, best: 1.231227)
+2025-09-25 10:24:59,274 INFO     Worse-than-best count: 2/3
+2025-09-25 10:24:59,275 INFO     [Epoch 6] GPU alloc: 2.39 GB, max alloc: 3.99 GB, reserved: 4.19 GB / 5.61 GB
+2025-09-25 10:25:06,374 INFO     Epoch 7/50  Train L1=1.2261
+2025-09-25 10:25:11,901 INFO     Epoch 7/50  Train L1=0.6713
+2025-09-25 10:25:17,428 INFO     Epoch 7/50  Train L1=1.7652
+2025-09-25 10:25:22,956 INFO     Epoch 7/50  Train L1=2.3148
+2025-09-25 10:25:26,558 INFO     Epoch 7/50 Train Loss=1.4943 (4 batches, 0 skipped)
+2025-09-25 10:25:31,962 INFO     Epoch 7/50 Val Loss=1.3097 (2 batches, 0 skipped)
+2025-09-25 10:25:31,963 INFO     Val loss did not improve (current: 1.309674, best: 1.231227)
+2025-09-25 10:25:31,963 INFO     Worse-than-best count: 3/3
+2025-09-25 10:25:31,963 INFO     Early stopping: too many epochs worse than best val loss.
+2025-09-25 10:25:39,200 INFO     Saved example inputs NIfTI for epoch 7

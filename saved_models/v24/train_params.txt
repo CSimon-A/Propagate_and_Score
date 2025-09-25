@@ -1,0 +1,75 @@
+Command: src/train/train_propagation.py --model Unet3D --data-dir /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/ --dataset-transform T2E --downsample --epochs 50 --batch-size 1 --val-size 0.2 --save-dir saved_models/v24 --subset-frac 0.001 --num-saves 10 --tx 2
+
+Arguments:
+batch_size: 1
+bce_weight: 1.0
+bd_weight: 1.0
+bg_weight: 0.1
+data_dir: /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/
+dataset_transform: T2E
+decomposition_decay: 0.5
+decomposition_mode: linear
+decomposition_steps: 5
+downsample: True
+epochs: 50
+es_delta: 0.0001
+es_patience: 3
+factor: 2
+hd_weight: 0.5
+levelset_steps: 0
+lr: 0.0001
+max_timepoint: 4
+model: Unet3D
+noise_amp: 0.09
+num_saves: 10
+pos_weight: 200.0
+save_dir: saved_models/v24
+scale_mode: min-max
+seed: 42
+subset_frac: 0.001
+t0: ('topk', 9)
+threshold: 0.01
+tx: 2
+val_size: 0.2
+want_all_checkpoints: False
+
+Config Constants:
+BATCH_SIZE: 1
+BBOX_SIZE: (192, 192, 192)
+BCE_WEIGHT: 1.0
+BD_WEIGHT: 1.0
+BG_WEIGHT: 0.1
+D: 193
+DATASET_TRANSFORM: T2E
+DATA_DIR: data
+DECOMPOSITION_DECAY: 0.5
+DECOMPOSITION_MODE: linear
+DECOMPOSITION_STEPS: 5
+DEVICE: cuda
+DOWNSAMPLE: True
+EPOCHS: 100
+ES_DELTA: 0.0001
+ES_PATIENCE: 3
+FACTOR: 2
+H: 229
+HD_WEIGHT: 0.5
+INC_T0: True
+INPUT_CHANNELS: 3
+LEVELSET_STEPS: 0
+LR: 0.0001
+MAX_TIMEPOINTS: 4
+MODEL: small
+NOISE_AMP: 0.09
+NUM_SAVES: 4
+OUTPUT_CHANNELS: 1
+POS_WEIGHT: 200.0
+SAVE_DIR: saved_models
+SCALE_MODE: min-max
+SEED: 42
+SUBSET_FRAC: 1.0
+T0_SPEC: ('topk', 9)
+THRESHOLD: 0.01
+TX: 4
+VAL_SIZE: 0.2
+W: 193
+WANT_ALL_CHECKPOINTS: False
