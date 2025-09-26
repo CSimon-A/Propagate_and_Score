@@ -1,10 +1,10 @@
-Command: src/train/train_propagation.py --model Unet3D --data-dir /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/ --dataset-transform T2E --downsample --epochs 50 --batch-size 1 --val-size 0.2 --save-dir saved_models/v25 --subset-frac 0.001 --num-saves 10 --tx 2
+Command: src/train/train_propagation.py --model Unet3D --data-dir /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/ --dataset-transform T2E --downsample --epochs 50 --batch-size 1 --val-size 0.2 --save-dir saved_models/v25 --subset-frac 0.001 --num-saves 10 --tx 2 --bg-weight 0.3
 
 Arguments:
 batch_size: 1
 bce_weight: 1.0
 bd_weight: 1.0
-bg_weight: 1.0
+bg_weight: 0.3
 data_dir: /home/local/USHERBROOKE/alls1477/Dataset/Martens_2021_tumeurs/original_data/
 dataset_transform: T2E
 decomposition_decay: 0.5
