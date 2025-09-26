@@ -22,7 +22,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 # ── Local ────────────────────────────────────────────────────────────────
 import config
-from utils.losses import BoundaryLoss, HausdorffLoss, compute_tte_loss
+from utils.losses import BoundaryLoss, HausdorffLoss, compute_tte_loss, compute_tte_loss_asym_band
 from manage.TumorPropagationDataset import TumorPropagationDataset as Dataset
 
 # ------------------------------
@@ -233,7 +233,9 @@ def train(args):
                     true_time = y.squeeze(1).float()
                     
                     with torch.cuda.amp.autocast(enabled=False):
-                        loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+                        # loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+                        loss = compute_tte_loss_asym_band(pred_time, true_time, args.bg_weight)
+
 
                     if not torch.isfinite(loss):
                         print("WARN: non-finite loss. stats:",
@@ -308,7 +310,8 @@ def train(args):
                         true_time = y.squeeze(1).float()
 
                         with torch.cuda.amp.autocast(enabled=False):
-                            loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+                            # loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
+                            loss = compute_tte_loss_asym_band(pred_time, true_time, args.bg_weight)
 
                         if not torch.isfinite(loss):
                             print("WARN: non-finite loss. stats:",

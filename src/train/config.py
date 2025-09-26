@@ -52,7 +52,7 @@ POS_WEIGHT = 200.0          # positive weight for BCE loss
 BCE_WEIGHT = 1.0            # weight for BCE loss
 BD_WEIGHT = 1.0             # weight for boundary loss
 HD_WEIGHT = 0.5             # weight for Hausdorff loss
-BG_WEIGHT = 0.1             # weight for background penalty in L1 loss
+BG_WEIGHT = 1.0             # weight for background penalty in L1 loss
 ES_PATIENCE = 3             # # of epochs with val_loss < es_delta before early stopping
 ES_DELTA = 1e-4             # min change in val_loss to qualify as improvement
 

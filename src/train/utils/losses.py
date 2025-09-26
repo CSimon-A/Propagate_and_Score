@@ -193,6 +193,8 @@ def compute_tte_loss(pred_time, true_time, bg_weight=0.1, bg_value=-1.0):
     fg = fin & (tgt >= 0)
     bg = fin & (tgt < 0)
 
+    #TODO: not sure about "fin = torch.isfinite(pred) & torch.isfinite(tgt)" above
+
     zero = (pred * 0).sum()
     l1_fg    = (pred[fg] - tgt[fg]).abs().mean() if fg.any() else zero
     hinge_bg = torch.relu(pred[bg] - bg_value).mean() if (bg.any() and bg_weight > 0) else zero
@@ -202,3 +204,45 @@ def compute_tte_loss(pred_time, true_time, bg_weight=0.1, bg_value=-1.0):
         return (pred * 0).sum()
     return loss
 
+
+def compute_tte_loss_asym_band(
+    pred_time,
+    true_time,
+    bg_weight=1,
+    bg_upper=-1.0,   # border between bg and fg
+    bg_lower=-5.0    # how far negative bg is allowed without penalty
+):
+    """
+    Foreground (tgt >= 0): L1(pred, tgt)
+    Background (tgt < 0): no penalty if pred in [bg_lower, bg_upper]
+      - penalize (pred - bg_upper) if pred > bg_upper
+      - penalize (bg_lower - pred) if pred < bg_lower
+    """
+    pred = pred_time.float()
+    tgt  = true_time.float()
+
+    zero = (pred * 0).sum()
+
+    fin = torch.isfinite(pred) & torch.isfinite(tgt)
+    if not fin.any():
+        return zero
+
+    fg = fin & (tgt >= 0)
+    bg = fin & (tgt < 0)
+
+    # Foreground: standard L1
+    l1_fg = (pred[fg] - tgt[fg]).abs().mean() if fg.any() else zero
+
+    # Background: two-sided hinge around [bg_lower, bg_upper]
+    if bg.any() and bg_weight > 0:
+        pbg = pred[bg]
+        # too positive (above -1): penalize pbg - (-1)
+        pos_violation = torch.relu(pbg - bg_upper)
+        # too negative (below -5): penalize (-5) - pbg
+        neg_violation = torch.relu(bg_lower - pbg)
+        band_hinge_bg = (pos_violation + neg_violation).mean()
+    else:
+        band_hinge_bg = zero
+
+    loss = l1_fg + bg_weight * band_hinge_bg
+    return loss if torch.isfinite(loss) else zero
