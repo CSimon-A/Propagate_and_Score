@@ -173,11 +173,11 @@ def build_model(args):
         from models.Unet3D import Unet3D as Model
 
     model = Model(config.INPUT_CHANNELS, config.OUTPUT_CHANNELS).to(config.DEVICE)
-    # opt = torch.optim.Adam(model.parameters(), lr=args.lr)
-    opt = torch.optim.SGD(
-            (p for p in model.parameters() if p.requires_grad),
-            lr=args.lr, momentum=0.9, nesterov=True, weight_decay=1e-4
-        )
+    opt = torch.optim.Adam(model.parameters(), lr=args.lr)
+    # opt = torch.optim.SGD(
+    #         (p for p in model.parameters() if p.requires_grad),
+    #         lr=args.lr, momentum=0.9, nesterov=True, weight_decay=1e-4
+    #     )
     scaler = GradScaler()
     return model, opt, scaler
 
@@ -238,7 +238,26 @@ def train(args):
                     
                     with torch.cuda.amp.autocast(enabled=False):
                         # loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
-                        loss = t2e_loss_elu_fp_suppress(pred_time, true_time)
+                        # loss = t2e_loss_elu_fp_suppress(pred_time, true_time)
+
+                        valid = (true_time >= 0)
+
+                        # --- protection tensor on right device/dtype ---
+                        zero = (pred_time * 0).sum()
+
+                        l1_map = losses(pred_time, true_time)
+                        l1 = l1_map[valid].mean() if valid.any() else zero  # <-- use zero if empty
+
+                        neg = ~valid
+                        if neg.any():
+                            neg_l1 = torch.relu(pred_time[neg] + 1).mean()
+                            loss = l1 + 0.8 * neg_l1
+                        else:
+                            loss = l1
+
+                        # final safety: if anything turned non-finite, fall back to zero
+                        if not torch.isfinite(loss):
+                            loss = zero
 
 
                     if not torch.isfinite(loss):
@@ -315,7 +334,26 @@ def train(args):
 
                         with torch.cuda.amp.autocast(enabled=False):
                             # loss = compute_tte_loss(pred_time, true_time, args.bg_weight)
-                            loss = t2e_loss_elu_fp_suppress(pred_time, true_time)
+                            # loss = t2e_loss_elu_fp_suppress(pred_time, true_time)
+
+                            valid = (true_time >= 0)
+
+                            # --- protection tensor on right device/dtype ---
+                            zero = (pred_time * 0).sum()
+
+                            l1_map = losses(pred_time, true_time)
+                            l1 = l1_map[valid].mean() if valid.any() else zero  # <-- use zero if empty
+
+                            neg = ~valid
+                            if neg.any():
+                                neg_l1 = torch.relu(pred_time[neg] + 1).mean()
+                                loss = l1 + 0.1 * neg_l1
+                            else:
+                                loss = l1
+
+                            # final safety: if anything turned non-finite, fall back to zero
+                            if not torch.isfinite(loss):
+                                loss = zero
 
                         if not torch.isfinite(loss):
                             print("WARN: non-finite loss. stats:",
