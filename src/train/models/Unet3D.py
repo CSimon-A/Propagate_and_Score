@@ -58,7 +58,8 @@ class Unet3D(nn.Module):
         # Encoder
         x1 = cp.checkpoint(self.down1, x, use_reentrant=False)
         # x1 = self.down1(x)
-        x2 = self.down2(self.pool(x1))
+        x2 = cp.checkpoint(self.down2, self.pool(x1), use_reentrant=False)
+        # x2 = self.down2(self.pool(x1))
         x3 = self.down3(self.pool(x2))
         x4 = self.down4(self.pool(x3))
         x5 = self.down5(self.pool(x4))
