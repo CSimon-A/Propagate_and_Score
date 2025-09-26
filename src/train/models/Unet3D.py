@@ -29,10 +29,10 @@ class Unet3D(nn.Module):
         self.down3 = DoubleConv(128, 256)
         self.down4 = DoubleConv(256, 512)
         self.down5 = DoubleConv(512, 1024)
-        self.down6 = DoubleConv(1024, 2048)
+        self.down6 = DoubleConv(1024, 1024)
 
         # Decoder
-        self.up5   = nn.ConvTranspose3d(2048, 1024, kernel_size=2, stride=2)
+        self.up5   = nn.ConvTranspose3d(1024, 1024, kernel_size=2, stride=2)
         self.skip5 = nn.Conv3d(1024, 1024, kernel_size=1)
         self.conv5 = DoubleConv(1024 + 1024, 1024)
 
