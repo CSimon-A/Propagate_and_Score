@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.utils.checkpoint as cp
 
 
 class DoubleConv(nn.Module):
@@ -55,8 +56,8 @@ class Unet3D(nn.Module):
 
     def forward(self, x):
         # Encoder
-        # x1 = cp.checkpoint(self.down1, x, use_reentrant=False)
-        x1 = self.down1(x)
+        x1 = cp.checkpoint(self.down1, x, use_reentrant=False)
+        # x1 = self.down1(x)
         x2 = self.down2(self.pool(x1))
         x3 = self.down3(self.pool(x2))
         x4 = self.down4(self.pool(x3))
