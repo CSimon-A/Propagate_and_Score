@@ -2,6 +2,7 @@
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 
 class DoubleConv(nn.Module):
@@ -66,7 +67,7 @@ class Unet3D(nn.Module):
         x = self.up5(x6)
         x = self.conv5(torch.cat([x, self.skip5(x5)], dim=1))
 
-        x = self.up4(x5)
+        x = self.up4(x)
         x = self.conv4(torch.cat([x, self.skip4(x4)], dim=1))
 
         x = self.up3(x)
@@ -79,4 +80,5 @@ class Unet3D(nn.Module):
         x = self.conv1(torch.cat([x, self.skip1(x1)], dim=1))
 
         out = self.outc(x)
+        out = F.elu(out, alpha=1.0)
         return out

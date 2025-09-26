@@ -246,3 +246,51 @@ def compute_tte_loss_asym_band(
 
     loss = l1_fg + bg_weight * band_hinge_bg
     return loss if torch.isfinite(loss) else zero
+
+
+def t2e_loss_elu_fp_suppress(
+    pred_time, true_time,
+    w_fg=1.0,               # weight for foreground regression
+    w_bg_pull=0.2,          # gentle pull of BG toward -1
+    w_bg_fp=2.0,            # strong penalty for BG false positives
+    fp_thresh=0.0,          # "positive" cutoff; 0.0 is natural for T2E
+    squared=True            # squared hinge is harsher on FPs
+):
+    """
+    Assumes model head uses ELU(alpha=1.0): outputs in (-1, ∞).
+
+    Loss = w_fg * L1_fg
+         + w_bg_pull * |pred_bg + 1|
+         + w_bg_fp * ReLU(pred_bg - fp_thresh)^{1 or 2}
+    """
+    pred = pred_time.float()
+    tgt  = true_time.float()
+
+    zero = (pred * 0).sum()
+    fin  = torch.isfinite(pred) & torch.isfinite(tgt)
+    if not fin.any():
+        return zero
+
+    fg = fin & (tgt >= 0)
+    bg = fin & (tgt < 0)
+
+    # Helper to avoid NaNs on empty slices
+    def safe_mean(t):
+        n = t.numel()
+        return t.sum() / (n if n > 0 else 1)
+
+    # 1) Foreground regression
+    l1_fg = safe_mean((pred[fg] - tgt[fg]).abs()) if fg.any() else zero
+
+    # 2) Background: pull toward -1
+    bg_pull = safe_mean((pred[bg] + 1.0).abs()) if bg.any() else zero
+
+    # 3) Background: suppress false positives (> fp_thresh)
+    if bg.any():
+        fp_violation = torch.relu(pred[bg] - fp_thresh)
+        bg_fp = safe_mean(fp_violation**2 if squared else fp_violation)
+    else:
+        bg_fp = zero
+
+    loss = w_fg * l1_fg + w_bg_pull * bg_pull + w_bg_fp * bg_fp
+    return loss if torch.isfinite(loss) else zero
