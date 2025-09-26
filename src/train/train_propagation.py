@@ -173,7 +173,11 @@ def build_model(args):
         from models.Unet3D import Unet3D as Model
 
     model = Model(config.INPUT_CHANNELS, config.OUTPUT_CHANNELS).to(config.DEVICE)
-    opt = torch.optim.Adam(model.parameters(), lr=args.lr)
+    # opt = torch.optim.Adam(model.parameters(), lr=args.lr)
+    opt = torch.optim.SGD(
+            (p for p in model.parameters() if p.requires_grad),
+            lr=args.lr, momentum=0.9, nesterov=True, weight_decay=1e-4
+        )
     scaler = GradScaler()
     return model, opt, scaler
 
