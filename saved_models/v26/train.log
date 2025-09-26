@@ -1,0 +1,414 @@
+2025-09-26 00:13:59,728 INFO     Total samples in dataset: 6000
+2025-09-26 00:14:06,539 INFO     Epoch 1/50  Train L1=2.9905
+2025-09-26 00:20:00,638 INFO     Total samples in dataset: 6000
+2025-09-26 00:20:07,453 INFO     Epoch 1/50  Train L1=2.9905
+2025-09-26 00:22:48,196 INFO     Total samples in dataset: 6000
+2025-09-26 00:22:55,020 INFO     Epoch 1/50  Train L1=2.9905
+2025-09-26 00:24:18,910 INFO     Total samples in dataset: 6000
+2025-09-26 00:24:25,699 INFO     Epoch 1/50  Train L1=2.9905
+2025-09-26 00:25:58,335 INFO     Total samples in dataset: 6000
+2025-09-26 00:26:05,158 INFO     Epoch 1/50  Train L1=2.9905
+2025-09-26 00:32:13,574 INFO     Total samples in dataset: 6000
+2025-09-26 00:32:20,354 INFO     Epoch 1/50  Train L1=2.9905
+2025-09-26 00:34:44,933 INFO     Total samples in dataset: 6000
+2025-09-26 00:34:50,927 INFO     Epoch 1/50  Train L1=4.7959
+2025-09-26 00:34:57,191 INFO     Epoch 1/50  Train L1=2.9098
+2025-09-26 00:35:03,385 INFO     Epoch 1/50  Train L1=1.6568
+2025-09-26 00:35:09,610 INFO     Epoch 1/50  Train L1=2.5546
+2025-09-26 00:35:13,966 INFO     Epoch 1/50 Train Loss=2.9793 (4 batches, 0 skipped)
+2025-09-26 00:35:19,311 INFO     Epoch 1/50 Val Loss=3.1565 (2 batches, 0 skipped)
+2025-09-26 00:35:19,311 INFO     New best val loss: 3.156451
+2025-09-26 00:35:20,395 INFO     [Epoch 1] GPU alloc: 2.72 GB, max alloc: 4.05 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:35:27,418 INFO     Epoch 2/50  Train L1=2.5813
+2025-09-26 00:35:33,643 INFO     Epoch 2/50  Train L1=4.7684
+2025-09-26 00:35:39,866 INFO     Epoch 2/50  Train L1=2.9172
+2025-09-26 00:35:46,090 INFO     Epoch 2/50  Train L1=1.6526
+2025-09-26 00:35:50,445 INFO     Epoch 2/50 Train Loss=2.9799 (4 batches, 0 skipped)
+2025-09-26 00:35:55,740 INFO     Epoch 2/50 Val Loss=3.1549 (2 batches, 0 skipped)
+2025-09-26 00:35:55,741 INFO     New best val loss: 3.154942
+2025-09-26 00:35:57,606 INFO     [Epoch 2] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.21 GB / 5.61 GB
+2025-09-26 00:36:01,125 INFO     Epoch 3/50  Train L1=2.5799
+2025-09-26 00:36:07,350 INFO     Epoch 3/50  Train L1=4.7663
+2025-09-26 00:36:13,588 INFO     Epoch 3/50  Train L1=2.9154
+2025-09-26 00:36:19,858 INFO     Epoch 3/50  Train L1=1.6516
+2025-09-26 00:36:24,245 INFO     Epoch 3/50 Train Loss=2.9783 (4 batches, 0 skipped)
+2025-09-26 00:36:29,583 INFO     Epoch 3/50 Val Loss=3.1532 (2 batches, 0 skipped)
+2025-09-26 00:36:29,583 INFO     New best val loss: 3.153196
+2025-09-26 00:36:31,391 INFO     [Epoch 3] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:36:34,990 INFO     Epoch 4/50  Train L1=4.7905
+2025-09-26 00:36:41,260 INFO     Epoch 4/50  Train L1=2.9049
+2025-09-26 00:36:47,529 INFO     Epoch 4/50  Train L1=2.5774
+2025-09-26 00:36:53,799 INFO     Epoch 4/50  Train L1=1.6507
+2025-09-26 00:36:58,187 INFO     Epoch 4/50 Train Loss=2.9809 (4 batches, 0 skipped)
+2025-09-26 00:37:03,519 INFO     Epoch 4/50 Val Loss=3.1513 (2 batches, 0 skipped)
+2025-09-26 00:37:03,520 INFO     New best val loss: 3.151343
+2025-09-26 00:37:05,319 INFO     [Epoch 4] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:37:08,910 INFO     Epoch 5/50  Train L1=4.7881
+2025-09-26 00:37:15,180 INFO     Epoch 5/50  Train L1=2.9029
+2025-09-26 00:37:21,449 INFO     Epoch 5/50  Train L1=2.5758
+2025-09-26 00:37:27,719 INFO     Epoch 5/50  Train L1=1.6497
+2025-09-26 00:37:32,106 INFO     Epoch 5/50 Train Loss=2.9791 (4 batches, 0 skipped)
+2025-09-26 00:37:37,441 INFO     Epoch 5/50 Val Loss=3.1495 (2 batches, 0 skipped)
+2025-09-26 00:37:37,441 INFO     New best val loss: 3.149503
+2025-09-26 00:37:38,988 INFO     [Epoch 5] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:37:42,500 INFO     Epoch 6/50  Train L1=1.6526
+2025-09-26 00:37:48,769 INFO     Epoch 6/50  Train L1=4.7594
+2025-09-26 00:37:55,039 INFO     Epoch 6/50  Train L1=2.9093
+2025-09-26 00:38:01,309 INFO     Epoch 6/50  Train L1=2.5477
+2025-09-26 00:38:05,696 INFO     Epoch 6/50 Train Loss=2.9672 (4 batches, 0 skipped)
+2025-09-26 00:38:11,025 INFO     Epoch 6/50 Val Loss=3.1478 (2 batches, 0 skipped)
+2025-09-26 00:38:11,026 INFO     New best val loss: 3.147789
+2025-09-26 00:38:13,143 INFO     [Epoch 6] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 00:38:20,126 INFO     Epoch 7/50  Train L1=1.6517
+2025-09-26 00:38:26,395 INFO     Epoch 7/50  Train L1=2.5471
+2025-09-26 00:38:32,665 INFO     Epoch 7/50  Train L1=2.9075
+2025-09-26 00:38:38,949 INFO     Epoch 7/50  Train L1=4.7562
+2025-09-26 00:38:43,368 INFO     Epoch 7/50 Train Loss=2.9656 (4 batches, 0 skipped)
+2025-09-26 00:38:48,731 INFO     Epoch 7/50 Val Loss=3.1462 (2 batches, 0 skipped)
+2025-09-26 00:38:48,732 INFO     New best val loss: 3.146153
+2025-09-26 00:38:50,546 INFO     [Epoch 7] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.34 GB / 5.61 GB
+2025-09-26 00:38:54,076 INFO     Epoch 8/50  Train L1=2.9065
+2025-09-26 00:39:00,391 INFO     Epoch 8/50  Train L1=4.7551
+2025-09-26 00:39:06,707 INFO     Epoch 8/50  Train L1=1.6504
+2025-09-26 00:39:13,024 INFO     Epoch 8/50  Train L1=2.5452
+2025-09-26 00:39:17,443 INFO     Epoch 8/50 Train Loss=2.9643 (4 batches, 0 skipped)
+2025-09-26 00:39:22,806 INFO     Epoch 8/50 Val Loss=3.1445 (2 batches, 0 skipped)
+2025-09-26 00:39:22,806 INFO     New best val loss: 3.144473
+2025-09-26 00:39:24,639 INFO     [Epoch 8] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.30 GB / 5.61 GB
+2025-09-26 00:39:28,170 INFO     Epoch 9/50  Train L1=2.9046
+2025-09-26 00:39:34,486 INFO     Epoch 9/50  Train L1=1.6467
+2025-09-26 00:39:40,802 INFO     Epoch 9/50  Train L1=4.7781
+2025-09-26 00:39:47,118 INFO     Epoch 9/50  Train L1=2.5440
+2025-09-26 00:39:51,538 INFO     Epoch 9/50 Train Loss=2.9684 (4 batches, 0 skipped)
+2025-09-26 00:39:56,892 INFO     Epoch 9/50 Val Loss=3.1429 (2 batches, 0 skipped)
+2025-09-26 00:39:56,892 INFO     New best val loss: 3.142881
+2025-09-26 00:39:58,728 INFO     [Epoch 9] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.22 GB / 5.61 GB
+2025-09-26 00:40:02,378 INFO     Epoch 10/50  Train L1=4.7770
+2025-09-26 00:40:08,694 INFO     Epoch 10/50  Train L1=1.6460
+2025-09-26 00:40:15,010 INFO     Epoch 10/50  Train L1=2.9020
+2025-09-26 00:40:21,327 INFO     Epoch 10/50  Train L1=2.5428
+2025-09-26 00:40:25,746 INFO     Epoch 10/50 Train Loss=2.9669 (4 batches, 0 skipped)
+2025-09-26 00:40:31,105 INFO     Epoch 10/50 Val Loss=3.1413 (2 batches, 0 skipped)
+2025-09-26 00:40:31,106 INFO     New best val loss: 3.141332
+2025-09-26 00:40:32,910 INFO     [Epoch 10] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:40:36,464 INFO     Epoch 11/50  Train L1=2.5680
+2025-09-26 00:40:42,780 INFO     Epoch 11/50  Train L1=1.6453
+2025-09-26 00:40:49,095 INFO     Epoch 11/50  Train L1=2.9003
+2025-09-26 00:40:55,411 INFO     Epoch 11/50  Train L1=4.7480
+2025-09-26 00:40:59,830 INFO     Epoch 11/50 Train Loss=2.9654 (4 batches, 0 skipped)
+2025-09-26 00:41:05,182 INFO     Epoch 11/50 Val Loss=3.1399 (2 batches, 0 skipped)
+2025-09-26 00:41:05,182 INFO     New best val loss: 3.139867
+2025-09-26 00:41:07,002 INFO     [Epoch 11] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:41:10,623 INFO     Epoch 12/50  Train L1=4.7731
+2025-09-26 00:41:16,939 INFO     Epoch 12/50  Train L1=1.6446
+2025-09-26 00:41:23,254 INFO     Epoch 12/50  Train L1=2.5662
+2025-09-26 00:41:29,570 INFO     Epoch 12/50  Train L1=2.8898
+2025-09-26 00:41:33,989 INFO     Epoch 12/50 Train Loss=2.9684 (4 batches, 0 skipped)
+2025-09-26 00:41:39,345 INFO     Epoch 12/50 Val Loss=3.1384 (2 batches, 0 skipped)
+2025-09-26 00:41:39,345 INFO     New best val loss: 3.138400
+2025-09-26 00:41:41,126 INFO     [Epoch 12] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:41:48,208 INFO     Epoch 13/50  Train L1=4.7711
+2025-09-26 00:41:54,524 INFO     Epoch 13/50  Train L1=2.5401
+2025-09-26 00:42:00,840 INFO     Epoch 13/50  Train L1=2.8969
+2025-09-26 00:42:07,156 INFO     Epoch 13/50  Train L1=1.6436
+2025-09-26 00:42:11,576 INFO     Epoch 13/50 Train Loss=2.9629 (4 batches, 0 skipped)
+2025-09-26 00:42:16,914 INFO     Epoch 13/50 Val Loss=3.1370 (2 batches, 0 skipped)
+2025-09-26 00:42:16,914 INFO     New best val loss: 3.136952
+2025-09-26 00:42:18,779 INFO     [Epoch 13] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:42:22,325 INFO     Epoch 14/50  Train L1=2.5643
+2025-09-26 00:42:28,640 INFO     Epoch 14/50  Train L1=1.6433
+2025-09-26 00:42:34,956 INFO     Epoch 14/50  Train L1=2.8954
+2025-09-26 00:42:41,272 INFO     Epoch 14/50  Train L1=4.7425
+2025-09-26 00:42:45,692 INFO     Epoch 14/50 Train Loss=2.9614 (4 batches, 0 skipped)
+2025-09-26 00:42:51,037 INFO     Epoch 14/50 Val Loss=3.1356 (2 batches, 0 skipped)
+2025-09-26 00:42:51,037 INFO     New best val loss: 3.135622
+2025-09-26 00:42:52,824 INFO     [Epoch 14] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:42:56,372 INFO     Epoch 15/50  Train L1=2.8946
+2025-09-26 00:43:02,688 INFO     Epoch 15/50  Train L1=1.6427
+2025-09-26 00:43:09,003 INFO     Epoch 15/50  Train L1=4.7666
+2025-09-26 00:43:15,319 INFO     Epoch 15/50  Train L1=2.5376
+2025-09-26 00:43:19,738 INFO     Epoch 15/50 Train Loss=2.9604 (4 batches, 0 skipped)
+2025-09-26 00:43:25,074 INFO     Epoch 15/50 Val Loss=3.1343 (2 batches, 0 skipped)
+2025-09-26 00:43:25,074 INFO     New best val loss: 3.134309
+2025-09-26 00:43:26,929 INFO     [Epoch 15] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 00:43:30,544 INFO     Epoch 16/50  Train L1=4.7657
+2025-09-26 00:43:36,860 INFO     Epoch 16/50  Train L1=2.8845
+2025-09-26 00:43:43,176 INFO     Epoch 16/50  Train L1=2.5615
+2025-09-26 00:43:49,491 INFO     Epoch 16/50  Train L1=1.6419
+2025-09-26 00:43:53,910 INFO     Epoch 16/50 Train Loss=2.9634 (4 batches, 0 skipped)
+2025-09-26 00:43:59,245 INFO     Epoch 16/50 Val Loss=3.1330 (2 batches, 0 skipped)
+2025-09-26 00:43:59,245 INFO     New best val loss: 3.133020
+2025-09-26 00:44:01,046 INFO     [Epoch 16] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.30 GB / 5.61 GB
+2025-09-26 00:44:04,604 INFO     Epoch 17/50  Train L1=2.8916
+2025-09-26 00:44:10,920 INFO     Epoch 17/50  Train L1=2.5363
+2025-09-26 00:44:17,236 INFO     Epoch 17/50  Train L1=4.7631
+2025-09-26 00:44:23,552 INFO     Epoch 17/50  Train L1=1.6414
+2025-09-26 00:44:27,971 INFO     Epoch 17/50 Train Loss=2.9581 (4 batches, 0 skipped)
+2025-09-26 00:44:33,301 INFO     Epoch 17/50 Val Loss=3.1318 (2 batches, 0 skipped)
+2025-09-26 00:44:33,301 INFO     New best val loss: 3.131829
+2025-09-26 00:44:35,156 INFO     [Epoch 17] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.22 GB / 5.61 GB
+2025-09-26 00:44:42,217 INFO     Epoch 18/50  Train L1=2.8903
+2025-09-26 00:44:48,533 INFO     Epoch 18/50  Train L1=1.6411
+2025-09-26 00:44:54,849 INFO     Epoch 18/50  Train L1=2.5596
+2025-09-26 00:45:01,166 INFO     Epoch 18/50  Train L1=4.7359
+2025-09-26 00:45:05,585 INFO     Epoch 18/50 Train Loss=2.9567 (4 batches, 0 skipped)
+2025-09-26 00:45:10,917 INFO     Epoch 18/50 Val Loss=3.1307 (2 batches, 0 skipped)
+2025-09-26 00:45:10,917 INFO     New best val loss: 3.130709
+2025-09-26 00:45:13,252 INFO     [Epoch 18] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.36 GB / 5.61 GB
+2025-09-26 00:45:16,832 INFO     Epoch 19/50  Train L1=2.8890
+2025-09-26 00:45:23,149 INFO     Epoch 19/50  Train L1=2.5347
+2025-09-26 00:45:29,465 INFO     Epoch 19/50  Train L1=4.7600
+2025-09-26 00:45:35,780 INFO     Epoch 19/50  Train L1=1.6405
+2025-09-26 00:45:40,200 INFO     Epoch 19/50 Train Loss=2.9560 (4 batches, 0 skipped)
+2025-09-26 00:45:45,545 INFO     Epoch 19/50 Val Loss=3.1296 (2 batches, 0 skipped)
+2025-09-26 00:45:45,545 INFO     New best val loss: 3.129585
+2025-09-26 00:45:47,369 INFO     [Epoch 19] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:45:50,895 INFO     Epoch 20/50  Train L1=2.5582
+2025-09-26 00:45:57,211 INFO     Epoch 20/50  Train L1=1.6403
+2025-09-26 00:46:03,526 INFO     Epoch 20/50  Train L1=2.8871
+2025-09-26 00:46:09,842 INFO     Epoch 20/50  Train L1=4.7330
+2025-09-26 00:46:14,261 INFO     Epoch 20/50 Train Loss=2.9546 (4 batches, 0 skipped)
+2025-09-26 00:46:19,629 INFO     Epoch 20/50 Val Loss=3.1285 (2 batches, 0 skipped)
+2025-09-26 00:46:19,629 INFO     New best val loss: 3.128527
+2025-09-26 00:46:21,468 INFO     [Epoch 20] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:46:25,020 INFO     Epoch 21/50  Train L1=2.5573
+2025-09-26 00:46:31,336 INFO     Epoch 21/50  Train L1=2.8783
+2025-09-26 00:46:37,652 INFO     Epoch 21/50  Train L1=4.7571
+2025-09-26 00:46:43,968 INFO     Epoch 21/50  Train L1=1.6397
+2025-09-26 00:46:48,388 INFO     Epoch 21/50 Train Loss=2.9581 (4 batches, 0 skipped)
+2025-09-26 00:46:53,743 INFO     Epoch 21/50 Val Loss=3.1275 (2 batches, 0 skipped)
+2025-09-26 00:46:53,743 INFO     New best val loss: 3.127451
+2025-09-26 00:46:55,579 INFO     [Epoch 21] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:46:59,078 INFO     Epoch 22/50  Train L1=1.6424
+2025-09-26 00:47:05,394 INFO     Epoch 22/50  Train L1=2.5324
+2025-09-26 00:47:11,710 INFO     Epoch 22/50  Train L1=4.7557
+2025-09-26 00:47:18,026 INFO     Epoch 22/50  Train L1=2.8765
+2025-09-26 00:47:22,445 INFO     Epoch 22/50 Train Loss=2.9518 (4 batches, 0 skipped)
+2025-09-26 00:47:27,805 INFO     Epoch 22/50 Val Loss=3.1264 (2 batches, 0 skipped)
+2025-09-26 00:47:27,805 INFO     New best val loss: 3.126434
+2025-09-26 00:47:29,613 INFO     [Epoch 22] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:47:33,098 INFO     Epoch 23/50  Train L1=1.6420
+2025-09-26 00:47:39,414 INFO     Epoch 23/50  Train L1=2.5317
+2025-09-26 00:47:45,730 INFO     Epoch 23/50  Train L1=4.7543
+2025-09-26 00:47:52,046 INFO     Epoch 23/50  Train L1=2.8754
+2025-09-26 00:47:56,465 INFO     Epoch 23/50 Train Loss=2.9509 (4 batches, 0 skipped)
+2025-09-26 00:48:01,810 INFO     Epoch 23/50 Val Loss=3.1254 (2 batches, 0 skipped)
+2025-09-26 00:48:01,810 INFO     New best val loss: 3.125446
+2025-09-26 00:48:03,668 INFO     [Epoch 23] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:48:10,670 INFO     Epoch 24/50  Train L1=1.6416
+2025-09-26 00:48:16,985 INFO     Epoch 24/50  Train L1=2.5310
+2025-09-26 00:48:23,301 INFO     Epoch 24/50  Train L1=4.7530
+2025-09-26 00:48:29,617 INFO     Epoch 24/50  Train L1=2.8743
+2025-09-26 00:48:34,036 INFO     Epoch 24/50 Train Loss=2.9500 (4 batches, 0 skipped)
+2025-09-26 00:48:39,375 INFO     Epoch 24/50 Val Loss=3.1245 (2 batches, 0 skipped)
+2025-09-26 00:48:39,375 INFO     New best val loss: 3.124463
+2025-09-26 00:48:41,212 INFO     [Epoch 24] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:48:44,843 INFO     Epoch 25/50  Train L1=4.7522
+2025-09-26 00:48:51,159 INFO     Epoch 25/50  Train L1=2.8737
+2025-09-26 00:48:57,475 INFO     Epoch 25/50  Train L1=1.6410
+2025-09-26 00:49:03,791 INFO     Epoch 25/50  Train L1=2.5300
+2025-09-26 00:49:08,210 INFO     Epoch 25/50 Train Loss=2.9492 (4 batches, 0 skipped)
+2025-09-26 00:49:13,556 INFO     Epoch 25/50 Val Loss=3.1234 (2 batches, 0 skipped)
+2025-09-26 00:49:13,556 INFO     New best val loss: 3.123439
+2025-09-26 00:49:15,398 INFO     [Epoch 25] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.22 GB / 5.61 GB
+2025-09-26 00:49:18,886 INFO     Epoch 26/50  Train L1=1.6408
+2025-09-26 00:49:25,202 INFO     Epoch 26/50  Train L1=2.5296
+2025-09-26 00:49:31,518 INFO     Epoch 26/50  Train L1=4.7502
+2025-09-26 00:49:37,834 INFO     Epoch 26/50  Train L1=2.8722
+2025-09-26 00:49:42,254 INFO     Epoch 26/50 Train Loss=2.9482 (4 batches, 0 skipped)
+2025-09-26 00:49:47,611 INFO     Epoch 26/50 Val Loss=3.1225 (2 batches, 0 skipped)
+2025-09-26 00:49:47,611 INFO     New best val loss: 3.122520
+2025-09-26 00:49:49,437 INFO     [Epoch 26] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:49:52,906 INFO     Epoch 27/50  Train L1=1.6405
+2025-09-26 00:49:59,222 INFO     Epoch 27/50  Train L1=2.5290
+2025-09-26 00:50:05,538 INFO     Epoch 27/50  Train L1=2.8790
+2025-09-26 00:50:11,854 INFO     Epoch 27/50  Train L1=4.7236
+2025-09-26 00:50:16,274 INFO     Epoch 27/50 Train Loss=2.9430 (4 batches, 0 skipped)
+2025-09-26 00:50:21,624 INFO     Epoch 27/50 Val Loss=3.1216 (2 batches, 0 skipped)
+2025-09-26 00:50:21,624 INFO     New best val loss: 3.121594
+2025-09-26 00:50:23,440 INFO     [Epoch 27] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 00:50:26,939 INFO     Epoch 28/50  Train L1=1.6401
+2025-09-26 00:50:33,255 INFO     Epoch 28/50  Train L1=2.8706
+2025-09-26 00:50:39,570 INFO     Epoch 28/50  Train L1=4.7476
+2025-09-26 00:50:45,886 INFO     Epoch 28/50  Train L1=2.5280
+2025-09-26 00:50:50,305 INFO     Epoch 28/50 Train Loss=2.9466 (4 batches, 0 skipped)
+2025-09-26 00:50:55,652 INFO     Epoch 28/50 Val Loss=3.1207 (2 batches, 0 skipped)
+2025-09-26 00:50:55,653 INFO     New best val loss: 3.120676
+2025-09-26 00:50:57,489 INFO     [Epoch 28] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:51:04,490 INFO     Epoch 29/50  Train L1=2.5508
+2025-09-26 00:51:10,807 INFO     Epoch 29/50  Train L1=1.6370
+2025-09-26 00:51:17,122 INFO     Epoch 29/50  Train L1=2.8768
+2025-09-26 00:51:23,438 INFO     Epoch 29/50  Train L1=4.7211
+2025-09-26 00:51:27,858 INFO     Epoch 29/50 Train Loss=2.9464 (4 batches, 0 skipped)
+2025-09-26 00:51:33,205 INFO     Epoch 29/50 Val Loss=3.1198 (2 batches, 0 skipped)
+2025-09-26 00:51:33,205 INFO     New best val loss: 3.119766
+2025-09-26 00:51:35,679 INFO     [Epoch 29] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.36 GB / 5.61 GB
+2025-09-26 00:51:39,211 INFO     Epoch 30/50  Train L1=2.8762
+2025-09-26 00:51:45,527 INFO     Epoch 30/50  Train L1=1.6367
+2025-09-26 00:51:51,843 INFO     Epoch 30/50  Train L1=2.5497
+2025-09-26 00:51:58,159 INFO     Epoch 30/50  Train L1=4.7198
+2025-09-26 00:52:02,578 INFO     Epoch 30/50 Train Loss=2.9456 (4 batches, 0 skipped)
+2025-09-26 00:52:07,932 INFO     Epoch 30/50 Val Loss=3.1188 (2 batches, 0 skipped)
+2025-09-26 00:52:07,932 INFO     New best val loss: 3.118846
+2025-09-26 00:52:09,754 INFO     [Epoch 30] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.22 GB / 5.61 GB
+2025-09-26 00:52:13,301 INFO     Epoch 31/50  Train L1=2.5493
+2025-09-26 00:52:19,616 INFO     Epoch 31/50  Train L1=2.8675
+2025-09-26 00:52:25,933 INFO     Epoch 31/50  Train L1=1.6390
+2025-09-26 00:52:32,248 INFO     Epoch 31/50  Train L1=4.7186
+2025-09-26 00:52:36,667 INFO     Epoch 31/50 Train Loss=2.9436 (4 batches, 0 skipped)
+2025-09-26 00:52:42,018 INFO     Epoch 31/50 Val Loss=3.1179 (2 batches, 0 skipped)
+2025-09-26 00:52:42,018 INFO     New best val loss: 3.117945
+2025-09-26 00:52:43,863 INFO     [Epoch 31] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:52:47,408 INFO     Epoch 32/50  Train L1=2.5486
+2025-09-26 00:52:53,724 INFO     Epoch 32/50  Train L1=1.6360
+2025-09-26 00:53:00,040 INFO     Epoch 32/50  Train L1=2.8736
+2025-09-26 00:53:06,356 INFO     Epoch 32/50  Train L1=4.7174
+2025-09-26 00:53:10,775 INFO     Epoch 32/50 Train Loss=2.9439 (4 batches, 0 skipped)
+2025-09-26 00:53:16,126 INFO     Epoch 32/50 Val Loss=3.1171 (2 batches, 0 skipped)
+2025-09-26 00:53:16,126 INFO     New best val loss: 3.117064
+2025-09-26 00:53:18,020 INFO     [Epoch 32] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:53:21,539 INFO     Epoch 33/50  Train L1=2.8730
+2025-09-26 00:53:27,855 INFO     Epoch 33/50  Train L1=4.7167
+2025-09-26 00:53:34,171 INFO     Epoch 33/50  Train L1=2.5474
+2025-09-26 00:53:40,487 INFO     Epoch 33/50  Train L1=1.6356
+2025-09-26 00:53:44,906 INFO     Epoch 33/50 Train Loss=2.9432 (4 batches, 0 skipped)
+2025-09-26 00:53:50,253 INFO     Epoch 33/50 Val Loss=3.1161 (2 batches, 0 skipped)
+2025-09-26 00:53:50,254 INFO     New best val loss: 3.116146
+2025-09-26 00:53:52,080 INFO     [Epoch 33] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:53:55,572 INFO     Epoch 34/50  Train L1=1.6381
+2025-09-26 00:54:01,888 INFO     Epoch 34/50  Train L1=2.5246
+2025-09-26 00:54:08,204 INFO     Epoch 34/50  Train L1=4.7400
+2025-09-26 00:54:14,520 INFO     Epoch 34/50  Train L1=2.8640
+2025-09-26 00:54:18,939 INFO     Epoch 34/50 Train Loss=2.9417 (4 batches, 0 skipped)
+2025-09-26 00:54:24,284 INFO     Epoch 34/50 Val Loss=3.1153 (2 batches, 0 skipped)
+2025-09-26 00:54:24,284 INFO     New best val loss: 3.115305
+2025-09-26 00:54:26,082 INFO     [Epoch 34] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:54:33,234 INFO     Epoch 35/50  Train L1=2.8710
+2025-09-26 00:54:39,550 INFO     Epoch 35/50  Train L1=1.6351
+2025-09-26 00:54:45,866 INFO     Epoch 35/50  Train L1=4.7388
+2025-09-26 00:54:52,181 INFO     Epoch 35/50  Train L1=2.5237
+2025-09-26 00:54:56,601 INFO     Epoch 35/50 Train Loss=2.9421 (4 batches, 0 skipped)
+2025-09-26 00:55:01,955 INFO     Epoch 35/50 Val Loss=3.1144 (2 batches, 0 skipped)
+2025-09-26 00:55:01,955 INFO     New best val loss: 3.114444
+2025-09-26 00:55:03,788 INFO     [Epoch 35] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 00:55:07,295 INFO     Epoch 36/50  Train L1=2.5457
+2025-09-26 00:55:13,611 INFO     Epoch 36/50  Train L1=2.8626
+2025-09-26 00:55:19,926 INFO     Epoch 36/50  Train L1=1.6374
+2025-09-26 00:55:26,242 INFO     Epoch 36/50  Train L1=4.7126
+2025-09-26 00:55:30,661 INFO     Epoch 36/50 Train Loss=2.9395 (4 batches, 0 skipped)
+2025-09-26 00:55:36,012 INFO     Epoch 36/50 Val Loss=3.1136 (2 batches, 0 skipped)
+2025-09-26 00:55:36,012 INFO     New best val loss: 3.113585
+2025-09-26 00:55:37,860 INFO     [Epoch 36] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:55:41,475 INFO     Epoch 37/50  Train L1=4.7370
+2025-09-26 00:55:47,792 INFO     Epoch 37/50  Train L1=2.8616
+2025-09-26 00:55:54,107 INFO     Epoch 37/50  Train L1=2.5446
+2025-09-26 00:56:00,423 INFO     Epoch 37/50  Train L1=1.6343
+2025-09-26 00:56:04,843 INFO     Epoch 37/50 Train Loss=2.9444 (4 batches, 0 skipped)
+2025-09-26 00:56:10,198 INFO     Epoch 37/50 Val Loss=3.1127 (2 batches, 0 skipped)
+2025-09-26 00:56:10,198 INFO     New best val loss: 3.112690
+2025-09-26 00:56:12,001 INFO     [Epoch 37] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.36 GB / 5.61 GB
+2025-09-26 00:56:15,522 INFO     Epoch 38/50  Train L1=2.5442
+2025-09-26 00:56:21,838 INFO     Epoch 38/50  Train L1=2.8607
+2025-09-26 00:56:28,154 INFO     Epoch 38/50  Train L1=4.7351
+2025-09-26 00:56:34,470 INFO     Epoch 38/50  Train L1=1.6340
+2025-09-26 00:56:38,890 INFO     Epoch 38/50 Train Loss=2.9435 (4 batches, 0 skipped)
+2025-09-26 00:56:44,257 INFO     Epoch 38/50 Val Loss=3.1118 (2 batches, 0 skipped)
+2025-09-26 00:56:44,258 INFO     New best val loss: 3.111823
+2025-09-26 00:56:46,562 INFO     [Epoch 38] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.26 GB / 5.61 GB
+2025-09-26 00:56:50,033 INFO     Epoch 39/50  Train L1=1.6366
+2025-09-26 00:56:56,349 INFO     Epoch 39/50  Train L1=2.8597
+2025-09-26 00:57:02,665 INFO     Epoch 39/50  Train L1=4.7339
+2025-09-26 00:57:08,980 INFO     Epoch 39/50  Train L1=2.5213
+2025-09-26 00:57:13,400 INFO     Epoch 39/50 Train Loss=2.9379 (4 batches, 0 skipped)
+2025-09-26 00:57:18,748 INFO     Epoch 39/50 Val Loss=3.1110 (2 batches, 0 skipped)
+2025-09-26 00:57:18,748 INFO     New best val loss: 3.110990
+2025-09-26 00:57:20,569 INFO     [Epoch 39] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 00:57:27,667 INFO     Epoch 40/50  Train L1=1.6362
+2025-09-26 00:57:33,983 INFO     Epoch 40/50  Train L1=2.8588
+2025-09-26 00:57:40,298 INFO     Epoch 40/50  Train L1=2.5425
+2025-09-26 00:57:46,615 INFO     Epoch 40/50  Train L1=4.7078
+2025-09-26 00:57:51,034 INFO     Epoch 40/50 Train Loss=2.9363 (4 batches, 0 skipped)
+2025-09-26 00:57:56,397 INFO     Epoch 40/50 Val Loss=3.1102 (2 batches, 0 skipped)
+2025-09-26 00:57:56,397 INFO     New best val loss: 3.110155
+2025-09-26 00:57:58,196 INFO     [Epoch 40] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:58:01,691 INFO     Epoch 41/50  Train L1=1.6359
+2025-09-26 00:58:08,007 INFO     Epoch 41/50  Train L1=2.5205
+2025-09-26 00:58:14,323 INFO     Epoch 41/50  Train L1=4.7316
+2025-09-26 00:58:20,639 INFO     Epoch 41/50  Train L1=2.8574
+2025-09-26 00:58:25,058 INFO     Epoch 41/50 Train Loss=2.9363 (4 batches, 0 skipped)
+2025-09-26 00:58:30,400 INFO     Epoch 41/50 Val Loss=3.1093 (2 batches, 0 skipped)
+2025-09-26 00:58:30,400 INFO     New best val loss: 3.109313
+2025-09-26 00:58:32,217 INFO     [Epoch 41] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 00:58:35,687 INFO     Epoch 42/50  Train L1=1.6356
+2025-09-26 00:58:42,003 INFO     Epoch 42/50  Train L1=2.5199
+2025-09-26 00:58:48,318 INFO     Epoch 42/50  Train L1=2.8636
+2025-09-26 00:58:54,634 INFO     Epoch 42/50  Train L1=4.7055
+2025-09-26 00:58:59,053 INFO     Epoch 42/50 Train Loss=2.9312 (4 batches, 0 skipped)
+2025-09-26 00:59:04,395 INFO     Epoch 42/50 Val Loss=3.1085 (2 batches, 0 skipped)
+2025-09-26 00:59:04,396 INFO     New best val loss: 3.108460
+2025-09-26 00:59:06,169 INFO     [Epoch 42] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.36 GB / 5.61 GB
+2025-09-26 00:59:09,652 INFO     Epoch 43/50  Train L1=1.6353
+2025-09-26 00:59:15,967 INFO     Epoch 43/50  Train L1=2.5193
+2025-09-26 00:59:22,283 INFO     Epoch 43/50  Train L1=4.7292
+2025-09-26 00:59:28,598 INFO     Epoch 43/50  Train L1=2.8555
+2025-09-26 00:59:33,018 INFO     Epoch 43/50 Train Loss=2.9348 (4 batches, 0 skipped)
+2025-09-26 00:59:38,372 INFO     Epoch 43/50 Val Loss=3.1076 (2 batches, 0 skipped)
+2025-09-26 00:59:38,372 INFO     New best val loss: 3.107580
+2025-09-26 00:59:40,199 INFO     [Epoch 43] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.30 GB / 5.61 GB
+2025-09-26 00:59:43,810 INFO     Epoch 44/50  Train L1=4.7285
+2025-09-26 00:59:50,126 INFO     Epoch 44/50  Train L1=2.5186
+2025-09-26 00:59:56,442 INFO     Epoch 44/50  Train L1=2.8615
+2025-09-26 01:00:02,757 INFO     Epoch 44/50  Train L1=1.6322
+2025-09-26 01:00:07,177 INFO     Epoch 44/50 Train Loss=2.9352 (4 batches, 0 skipped)
+2025-09-26 01:00:12,509 INFO     Epoch 44/50 Val Loss=3.1066 (2 batches, 0 skipped)
+2025-09-26 01:00:12,509 INFO     New best val loss: 3.106618
+2025-09-26 01:00:14,302 INFO     [Epoch 44] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 01:00:17,822 INFO     Epoch 45/50  Train L1=2.5391
+2025-09-26 01:00:24,138 INFO     Epoch 45/50  Train L1=1.6320
+2025-09-26 01:00:30,454 INFO     Epoch 45/50  Train L1=2.8604
+2025-09-26 01:00:36,770 INFO     Epoch 45/50  Train L1=4.7018
+2025-09-26 01:00:41,189 INFO     Epoch 45/50 Train Loss=2.9333 (4 batches, 0 skipped)
+2025-09-26 01:00:46,536 INFO     Epoch 45/50 Val Loss=3.1057 (2 batches, 0 skipped)
+2025-09-26 01:00:46,536 INFO     New best val loss: 3.105711
+2025-09-26 01:00:48,362 INFO     [Epoch 45] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.32 GB / 5.61 GB
+2025-09-26 01:00:55,362 INFO     Epoch 46/50  Train L1=2.5384
+2025-09-26 01:01:01,678 INFO     Epoch 46/50  Train L1=2.8529
+2025-09-26 01:01:07,994 INFO     Epoch 46/50  Train L1=4.7251
+2025-09-26 01:01:14,310 INFO     Epoch 46/50  Train L1=1.6314
+2025-09-26 01:01:18,729 INFO     Epoch 46/50 Train Loss=2.9370 (4 batches, 0 skipped)
+2025-09-26 01:01:24,075 INFO     Epoch 46/50 Val Loss=3.1047 (2 batches, 0 skipped)
+2025-09-26 01:01:24,075 INFO     New best val loss: 3.104716
+2025-09-26 01:01:25,899 INFO     [Epoch 46] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.36 GB / 5.61 GB
+2025-09-26 01:01:29,414 INFO     Epoch 47/50  Train L1=2.5375
+2025-09-26 01:01:35,730 INFO     Epoch 47/50  Train L1=2.8518
+2025-09-26 01:01:42,045 INFO     Epoch 47/50  Train L1=1.6336
+2025-09-26 01:01:48,361 INFO     Epoch 47/50  Train L1=4.6990
+2025-09-26 01:01:52,781 INFO     Epoch 47/50 Train Loss=2.9305 (4 batches, 0 skipped)
+2025-09-26 01:01:58,113 INFO     Epoch 47/50 Val Loss=3.1037 (2 batches, 0 skipped)
+2025-09-26 01:01:58,114 INFO     New best val loss: 3.103730
+2025-09-26 01:01:59,944 INFO     [Epoch 47] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.32 GB / 5.61 GB
+2025-09-26 01:02:03,536 INFO     Epoch 48/50  Train L1=4.7230
+2025-09-26 01:02:09,853 INFO     Epoch 48/50  Train L1=1.6309
+2025-09-26 01:02:16,169 INFO     Epoch 48/50  Train L1=2.8570
+2025-09-26 01:02:22,485 INFO     Epoch 48/50  Train L1=2.5155
+2025-09-26 01:02:26,904 INFO     Epoch 48/50 Train Loss=2.9316 (4 batches, 0 skipped)
+2025-09-26 01:02:32,300 INFO     Epoch 48/50 Val Loss=3.1027 (2 batches, 0 skipped)
+2025-09-26 01:02:32,300 INFO     New best val loss: 3.102696
+2025-09-26 01:02:34,082 INFO     [Epoch 48] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.32 GB / 5.61 GB
+2025-09-26 01:02:37,603 INFO     Epoch 49/50  Train L1=1.6330
+2025-09-26 01:02:43,919 INFO     Epoch 49/50  Train L1=4.6970
+2025-09-26 01:02:50,235 INFO     Epoch 49/50  Train L1=2.8558
+2025-09-26 01:02:56,551 INFO     Epoch 49/50  Train L1=2.5147
+2025-09-26 01:03:00,970 INFO     Epoch 49/50 Train Loss=2.9251 (4 batches, 0 skipped)
+2025-09-26 01:03:06,310 INFO     Epoch 49/50 Val Loss=3.1017 (2 batches, 0 skipped)
+2025-09-26 01:03:06,310 INFO     New best val loss: 3.101670
+2025-09-26 01:03:08,114 INFO     [Epoch 49] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.28 GB / 5.61 GB
+2025-09-26 01:03:11,741 INFO     Epoch 50/50  Train L1=4.7201
+2025-09-26 01:03:18,057 INFO     Epoch 50/50  Train L1=2.8484
+2025-09-26 01:03:24,373 INFO     Epoch 50/50  Train L1=1.6323
+2025-09-26 01:03:30,689 INFO     Epoch 50/50  Train L1=2.5139
+2025-09-26 01:03:35,108 INFO     Epoch 50/50 Train Loss=2.9287 (4 batches, 0 skipped)
+2025-09-26 01:03:40,453 INFO     Epoch 50/50 Val Loss=3.1006 (2 batches, 0 skipped)
+2025-09-26 01:03:40,453 INFO     New best val loss: 3.100552
+2025-09-26 01:03:42,275 INFO     [Epoch 50] GPU alloc: 2.73 GB, max alloc: 4.06 GB, reserved: 4.24 GB / 5.61 GB
+2025-09-26 01:03:53,052 INFO     Saved example inputs NIfTI for epoch 50
